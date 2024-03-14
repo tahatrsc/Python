@@ -1,0 +1,17 @@
+import socket
+
+def get_location_from_ip(ip_address):
+  try:
+    response = socket.gethostbyaddr(ip_address)
+    location = response[0]
+    return location
+  except socket.herror:
+    return None
+
+ip_address = input("Enter an IP address: ")
+location = get_location_from_ip(ip_address)
+
+if location:
+  print(f"Location: {location}")
+else:
+  print(f"Unable to find location for IP address: {ip_address}")
